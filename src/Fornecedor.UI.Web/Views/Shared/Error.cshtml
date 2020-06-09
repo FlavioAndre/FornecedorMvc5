@@ -1,0 +1,11 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "Error";
+}
+
+<h1 class="text-danger">Error.</h1>
+<h2 class="text-danger">Um error inesperado ocorreu na sua requisição.</h2>
+
+<h2 class="text-danger">@TempData["ErrorMessage"]</h2>
+

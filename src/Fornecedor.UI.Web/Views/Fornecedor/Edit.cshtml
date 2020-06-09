@@ -1,0 +1,95 @@
+﻿
+@model Fornecedor.Application.ViewModels.FornecedorTelefoneViewModel
+@{
+    ViewBag.Title = "Editar Fornecedor";
+}
+
+<h2>Editar Fornecedor</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <hr />
+    @Html.Partial("_ErrorSummary")
+
+    @Html.HiddenFor(model => model.FornecedorId)
+
+    <div class="form-group">
+        @Html.Label("Tipo de Fornecedor", new { @class = "control-label col-md-2" }) 
+        <div class="col-md-2">
+            @Html.RadioButtonFor(model => model.TipoFornecedor, 1, ViewBag.PessoaFisicaSelecionda == true ? new { Checked = "checked" } : null) Pessoa Física
+        </div>
+        <div class="col-md-2">
+            @Html.RadioButtonFor(model => model.TipoFornecedor, 2, ViewBag.PessoaFisicaSelecionda == false ? new { Checked = "checked" } : null) Pessoa Jurídica
+        </div>
+        @Html.ValidationMessageFor(model => model.TipoFornecedor, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Empresa", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("EmpresaId", null, "", new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Nome, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CpfOuCnpj, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.CpfOuCnpj, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.CpfOuCnpj, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.RegistroGeral, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-3">
+            @Html.EditorFor(model => model.RegistroGeral, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.RegistroGeral, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DataAniversario, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-3">
+            @Html.EditorFor(model => model.DataAniversario, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+
+    <hr />
+    <h4>Telefone</h4>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Numero, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-3">
+            @Html.EditorFor(model => model.Numero, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Numero, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Atualizar" class="btn btn-success" />
+            @Html.ActionLink("Voltar", "Index", null, new { @class = "btn btn-default" })
+        </div>
+    </div>
+</div>
+}
+
+<div id="myModal" class="modal fade in">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="myModalContent"></div>
+        </div>
+    </div>
+</div>

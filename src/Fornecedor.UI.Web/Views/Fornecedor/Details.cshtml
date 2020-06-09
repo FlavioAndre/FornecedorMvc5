@@ -1,0 +1,55 @@
+﻿@model Fornecedor.Application.ViewModels.FornecedorTelefoneViewModel
+
+@{
+    ViewBag.Title = "Detalhes do Fornecedor";
+}
+
+<h2>@ViewBag.Title </h2>
+<hr/>
+<div class="container">
+    <div class="row">
+        <div class="">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h4 class="panel-title">@Model.Nome</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class=" col-md-9 col-lg-12 ">
+                            <table class="table table-user-information">
+                                <tbody>
+                                    <tr>
+                                        <td>Empresa:</td>
+                                        <td>@Model.Empresa.NomeFantasia</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>CPF/CNPJ:</td>
+                                        <td>@Model.CpfOuCnpj</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Data do Cadastro:</td>
+                                        <td>@Model.DataCadastro.ToString("d")</td>
+                                    </tr>
+
+                                    <tr>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <a href="@Url.Action("editar", "Fornecedores", new {id = Model.FornecedorId})" data-modal="" class="btn btn-primary">
+                        <span title="Editar" class="glyphicon glyphicon-pencil"></span>
+                    </a>
+                    <a href="@Url.Action("excluir", "Fornecedores", new {id = Model.FornecedorId})" data-modal="" class="btn btn-danger">
+                        <span title="Excluir" class="glyphicon glyphicon-trash"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
