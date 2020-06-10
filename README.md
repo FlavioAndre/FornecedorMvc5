@@ -1,5 +1,5 @@
 # Projeto cadastro de Fornecedor
-Projeto com asp.net mvc5 - Cadastro de Fornecedor
+Projeto com asp.net mvc5 - Cadastro de Fornecedor [![Build Status](https://travis-ci.com/FlavioAndre/FornecedorMvc5.svg?branch=master)](https://travis-ci.com/FlavioAndre/FornecedorMvc5)
 
 ## Tecnologias implementadas:
 
